@@ -13,6 +13,7 @@ public class Slingshot : MonoBehaviour
     public Vector3 launchPos; // хранит координаты launchPoint
     public bool aimMode; // True, когда игрок нажимает кнопку мыши
 
+    public static int cnt = 0;
     public static Slingshot instance;
     private Rigidbody projectTileRigidBody;
 
@@ -74,6 +75,7 @@ public class Slingshot : MonoBehaviour
         if (Input.GetMouseButtonUp(0)) // отпустили кнопку
         {
             aimMode = false;
+            cnt += 1;
             projectTileRigidBody.isKinematic = false;
             projectTileRigidBody.velocity = -mouseDelta * velocityMult;
             FollowingCamera.point = projectTile;
